@@ -441,22 +441,20 @@ jobs:
             # us live tiles without any real hardware.
             # QSettings path comes from main.cpp:
             #   org "Roberto Viola" / app "qDomyos-Zwift"
+            # NOTE: this action runs the script ONE LINE PER SHELL, so shell
+            # variables do not survive between lines and multi-line if/for
+            # blocks are a syntax error. Every command below must stand alone
+            # on a single line (this is why the loops here are one-liners).
             echo "Seeding QZ settings (fake device, skip wizard)..."
-            PKG=org.cagnulen.qdomyoszwift
-            CONF_DIR="/data/data/$PKG/files/.config/Roberto Viola"
-            printf '[General]\napplewatch_fakedevice=true\n' > qz-seed.conf
             adb root || true
             adb wait-for-device
-            adb shell "mkdir -p '$CONF_DIR'" || true
-            adb push qz-seed.conf "$CONF_DIR/qDomyos-Zwift.conf" || true
-            # The file must be owned by the app's uid or QSettings cannot use it.
-            APP_UID=$(adb shell dumpsys package $PKG | grep -m1 -oE 'userId=[0-9]+' | cut -d= -f2)
-            echo "app uid: $APP_UID"
-            if [ -n "$APP_UID" ]; then
-              adb shell "chown -R $APP_UID:$APP_UID '/data/data/$PKG/files'" || true
-            fi
+            printf '[General]\napplewatch_fakedevice=true\n' > qz-seed.conf
+            adb shell "mkdir -p '/data/data/org.cagnulen.qdomyoszwift/files/.config/Roberto Viola'" || true
+            adb push qz-seed.conf "/data/data/org.cagnulen.qdomyoszwift/files/.config/Roberto Viola/qDomyos-Zwift.conf" || true
+            adb shell "chown -R \$(stat -c '%u:%g' /data/data/org.cagnulen.qdomyoszwift) /data/data/org.cagnulen.qdomyoszwift/files" || true
+            adb shell "restorecon -R /data/data/org.cagnulen.qdomyoszwift/files" || true
             echo "--- seeded settings on device ---"
-            adb shell "cat '$CONF_DIR/qDomyos-Zwift.conf'" || echo "(could not read back - seeding may have failed)"
+            adb shell "cat '/data/data/org.cagnulen.qdomyoszwift/files/.config/Roberto Viola/qDomyos-Zwift.conf'" || echo "(could not read back - seeding may have failed)"
 
             # Start the main activity
             adb shell am start -n org.cagnulen.qdomyoszwift/org.cagnulen.qdomyoszwift.CustomQtActivity
@@ -493,13 +491,10 @@ jobs:
             # time series instead: the dashboard needs a moment to connect the
             # simulated bike and start populating tiles.
             echo "Capturing dashboard time series..."
-            for t in 1 2 3; do
-              sleep 15
-              echo "screenshot $t (t+$((t*15))s)"
-              adb shell screencap -p /sdcard/screenshot_t$t.png
-              adb pull /sdcard/screenshot_t$t.png
-            done
+            for t in 1 2 3; do sleep 15; echo "screenshot $t"; adb shell screencap -p /sdcard/screenshot_t$t.png; adb pull /sdcard/screenshot_t$t.png; done
             echo "Time-series screenshots captured"
+            echo "=== where QZ actually stores its settings (diagnostic) ==="
+            adb shell "find /data/data/org.cagnulen.qdomyoszwift -name '*.conf' 2>/dev/null" || true
 
             # Check if the package is installed
             adb shell pm list packages | grep org.cagnulen.qdomyoszwift
