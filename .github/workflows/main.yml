@@ -434,6 +434,30 @@ jobs:
 
             echo "All permissions granted successfully"
 
+            # Seed QZ settings so the screenshots show the DASHBOARD, not the
+            # first-run wizard. homeform::firstRun() returns false as soon as
+            # applewatch_fakedevice is set, and that same flag spawns the
+            # simulated bike - so one setting both skips the wizard and gives
+            # us live tiles without any real hardware.
+            # QSettings path comes from main.cpp:
+            #   org "Roberto Viola" / app "qDomyos-Zwift"
+            echo "Seeding QZ settings (fake device, skip wizard)..."
+            PKG=org.cagnulen.qdomyoszwift
+            CONF_DIR="/data/data/$PKG/files/.config/Roberto Viola"
+            printf '[General]\napplewatch_fakedevice=true\n' > qz-seed.conf
+            adb root || true
+            adb wait-for-device
+            adb shell "mkdir -p '$CONF_DIR'" || true
+            adb push qz-seed.conf "$CONF_DIR/qDomyos-Zwift.conf" || true
+            # The file must be owned by the app's uid or QSettings cannot use it.
+            APP_UID=$(adb shell dumpsys package $PKG | grep -m1 -oE 'userId=[0-9]+' | cut -d= -f2)
+            echo "app uid: $APP_UID"
+            if [ -n "$APP_UID" ]; then
+              adb shell "chown -R $APP_UID:$APP_UID '/data/data/$PKG/files'" || true
+            fi
+            echo "--- seeded settings on device ---"
+            adb shell "cat '$CONF_DIR/qDomyos-Zwift.conf'" || echo "(could not read back - seeding may have failed)"
+
             # Start the main activity
             adb shell am start -n org.cagnulen.qdomyoszwift/org.cagnulen.qdomyoszwift.CustomQtActivity
 
@@ -464,17 +488,18 @@ jobs:
             adb shell screencap -p /sdcard/screenshot.png
             adb pull /sdcard/screenshot.png
 
-            # Test orientamento automatico con screenshot
-            echo "Starting orientation test with automatic screenshots..."
-
-            # Screenshot iniziale (orientamento corrente)
-            adb shell screencap -p /sdcard/screenshot_orientation_0.png
-            adb pull /sdcard/screenshot_orientation_0.png
-
-            # Loop per 3 rotazioni aggiuntive (90°, 180°, 270°)
-            for i in 1 2 3; do echo "Rotating to orientation $i (90° * $i)"; adb shell settings put system user_rotation $i; sleep 5; echo "Taking screenshot for orientation $i"; adb shell screencap -p /sdcard/screenshot_orientation_$i.png; adb pull /sdcard/screenshot_orientation_$i.png; done
-
-            echo "Orientation test completed - 4 screenshots captured"
+            # The upstream job rotated the device 3 times, but QZ stays in one
+            # orientation so all 4 images came out byte-identical. Take a short
+            # time series instead: the dashboard needs a moment to connect the
+            # simulated bike and start populating tiles.
+            echo "Capturing dashboard time series..."
+            for t in 1 2 3; do
+              sleep 15
+              echo "screenshot $t (t+$((t*15))s)"
+              adb shell screencap -p /sdcard/screenshot_t$t.png
+              adb pull /sdcard/screenshot_t$t.png
+            done
+            echo "Time-series screenshots captured"
 
             # Check if the package is installed
             adb shell pm list packages | grep org.cagnulen.qdomyoszwift
@@ -491,7 +516,7 @@ jobs:
           name: android-emulator-test-evidence-api${{ matrix.api-level }}
           path: |
             screenshot.png
-            screenshot_orientation_*.png
+            screenshot_t*.png
             process_list.txt
             full_logcat.txt
             qdomyos_logcat.txt
