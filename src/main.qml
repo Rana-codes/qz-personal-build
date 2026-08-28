@@ -136,7 +136,7 @@ ApplicationWindow {
     Settings {
         id: settings
         property string profile_name: "default"        
-        property string theme_status_bar_background_color: "#800080"
+        property string theme_status_bar_background_color: "#C30010"
         property bool volume_change_gears: false
         property string peloton_username: "username"
         property string peloton_password: "password"

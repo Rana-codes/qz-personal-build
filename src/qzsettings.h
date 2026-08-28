@@ -392,13 +392,13 @@ class QZSettings {
     static const QString default_pzp_password;
 
     static const QString tile_speed_enabled;
-    static constexpr bool default_tile_speed_enabled = true;
+    static constexpr bool default_tile_speed_enabled = false;
 
     static const QString tile_speed_order;
     static constexpr int default_tile_speed_order = 0;
 
     static const QString tile_inclination_enabled;
-    static constexpr bool default_tile_inclination_enabled = true;
+    static constexpr bool default_tile_inclination_enabled = false;
 
     static const QString tile_inclination_order;
     static constexpr int default_tile_inclination_order = 1;
@@ -407,10 +407,10 @@ class QZSettings {
     static constexpr bool default_tile_cadence_enabled = true;
 
     static const QString tile_cadence_order;
-    static constexpr int default_tile_cadence_order = 2;
+    static constexpr int default_tile_cadence_order = 0;
 
     static const QString tile_elevation_enabled;
-    static constexpr bool default_tile_elevation_enabled = true;
+    static constexpr bool default_tile_elevation_enabled = false;
 
     static const QString tile_elevation_order;
     static constexpr int default_tile_elevation_order = 3;
@@ -419,16 +419,16 @@ class QZSettings {
     static constexpr bool default_tile_calories_enabled = true;
 
     static const QString tile_calories_order;
-    static constexpr int default_tile_calories_order = 4;
+    static constexpr int default_tile_calories_order = 2;
 
     static const QString tile_odometer_enabled;
     static constexpr bool default_tile_odometer_enabled = true;
 
     static const QString tile_odometer_order;
-    static constexpr int default_tile_odometer_order = 5;
+    static constexpr int default_tile_odometer_order = 1;
 
     static const QString tile_pace_enabled;
-    static constexpr bool default_tile_pace_enabled = true;
+    static constexpr bool default_tile_pace_enabled = false;
 
     static const QString tile_pace_order;
     static constexpr int default_tile_pace_order = 6;
@@ -449,10 +449,10 @@ class QZSettings {
     static constexpr bool default_tile_resistance_enabled = true;
 
     static const QString tile_resistance_order;
-    static constexpr int default_tile_resistance_order = 7;
+    static constexpr int default_tile_resistance_order = 3;
 
     static const QString tile_watt_enabled;
-    static constexpr bool default_tile_watt_enabled = true;
+    static constexpr bool default_tile_watt_enabled = false;
 
     static const QString tile_watt_order;
     static constexpr int default_tile_watt_order = 8;
@@ -464,13 +464,13 @@ class QZSettings {
     static constexpr int default_tile_weight_loss_order = 24;
 
     static const QString tile_avgwatt_enabled;
-    static constexpr bool default_tile_avgwatt_enabled = true;
+    static constexpr bool default_tile_avgwatt_enabled = false;
 
     static const QString tile_avgwatt_order;
     static constexpr int default_tile_avgwatt_order = 9;
 
     static const QString tile_ftp_enabled;
-    static constexpr bool default_tile_ftp_enabled = true;
+    static constexpr bool default_tile_ftp_enabled = false;
 
     static const QString tile_ftp_order;
     static constexpr int default_tile_ftp_order = 10;
@@ -479,19 +479,19 @@ class QZSettings {
     static constexpr bool default_tile_heart_enabled = true;
 
     static const QString tile_heart_order;
-    static constexpr int default_tile_heart_order = 11;
+    static constexpr int default_tile_heart_order = 4;
 
     static const QString tile_heart_show_as_percent;
     static constexpr bool default_tile_heart_show_as_percent = false;
 
     static const QString tile_fan_enabled;
-    static constexpr bool default_tile_fan_enabled = true;
+    static constexpr bool default_tile_fan_enabled = false;
 
     static const QString tile_fan_order;
     static constexpr int default_tile_fan_order = 12;
 
     static const QString tile_jouls_enabled;
-    static constexpr bool default_tile_jouls_enabled = true;
+    static constexpr bool default_tile_jouls_enabled = false;
 
     static const QString tile_jouls_order;
     static constexpr int default_tile_jouls_order = 13;
@@ -500,7 +500,7 @@ class QZSettings {
     static constexpr bool default_tile_elapsed_enabled = true;
 
     static const QString tile_elapsed_order;
-    static constexpr int default_tile_elapsed_order = 14;
+    static constexpr int default_tile_elapsed_order = 5;
 
     static const QString tile_lapelapsed_enabled;
     static constexpr bool default_tile_lapelapsed_enabled = false;
@@ -527,19 +527,19 @@ class QZSettings {
     static constexpr int default_tile_peloton_difficulty_order = 32;
 
     static const QString tile_peloton_resistance_enabled;
-    static constexpr bool default_tile_peloton_resistance_enabled = true;
+    static constexpr bool default_tile_peloton_resistance_enabled = false;
 
     static const QString tile_peloton_resistance_order;
     static constexpr int default_tile_peloton_resistance_order = 15;
 
     static const QString tile_datetime_enabled;
-    static constexpr bool default_tile_datetime_enabled = true;
+    static constexpr bool default_tile_datetime_enabled = false;
 
     static const QString tile_datetime_order;
     static constexpr int default_tile_datetime_order = 16;
 
     static const QString tile_target_resistance_enabled;
-    static constexpr bool default_tile_target_resistance_enabled = true;
+    static constexpr bool default_tile_target_resistance_enabled = false;
 
     static const QString tile_target_resistance_order;
     static constexpr int default_tile_target_resistance_order = 15;
@@ -641,19 +641,19 @@ class QZSettings {
     static constexpr int default_tile_pid_hr_order = 31;
 
     static const QString heart_rate_zone1;
-    static constexpr float default_heart_rate_zone1 = 70.0;
+    static constexpr float default_heart_rate_zone1 = 60.0;
 
     static const QString heart_rate_zone2;
-    static constexpr float default_heart_rate_zone2 = 80.0;
+    static constexpr float default_heart_rate_zone2 = 70.0;
 
     static const QString heart_rate_zone3;
-    static constexpr float default_heart_rate_zone3 = 90.0;
+    static constexpr float default_heart_rate_zone3 = 80.0;
 
     static const QString heart_rate_zone4;
-    static constexpr float default_heart_rate_zone4 = 100.0;
+    static constexpr float default_heart_rate_zone4 = 90.0;
 
     static const QString heart_max_override_enable;
-    static constexpr bool default_heart_max_override_enable = false;
+    static constexpr bool default_heart_max_override_enable = true;
 
     static const QString heart_max_override_value;
     static constexpr float default_heart_max_override_value = 195.0;
@@ -1240,10 +1240,10 @@ class QZSettings {
     static const QString default_profile_name;
 
     static const QString tile_cadence_color_enabled;
-    static constexpr bool default_tile_cadence_color_enabled = false;
+    static constexpr bool default_tile_cadence_color_enabled = true;
 
     static const QString tile_watt_color_enabled;
-    static constexpr bool default_tile_watt_color_enabled = true;
+    static constexpr bool default_tile_watt_color_enabled = false;
 
     static const QString tile_pace_color_enabled;
     static constexpr bool default_tile_pace_color_enabled = true;
@@ -1537,34 +1537,34 @@ class QZSettings {
     static constexpr bool default_tts_description_enabled = true;
 
     static const QString tile_preset_resistance_1_enabled;
-    static constexpr bool default_tile_preset_resistance_1_enabled = false;
+    static constexpr bool default_tile_preset_resistance_1_enabled = true;
 
     static const QString tile_preset_resistance_1_order;
-    static constexpr int default_tile_preset_resistance_1_order = 33;
+    static constexpr int default_tile_preset_resistance_1_order = 7;
 
     static const QString tile_preset_resistance_1_value;
-    static constexpr double default_tile_preset_resistance_1_value = 1;
+    static constexpr double default_tile_preset_resistance_1_value = 0;
 
     static const QString tile_preset_resistance_1_label;
     static const QString default_tile_preset_resistance_1_label;
 
     static const QString tile_preset_resistance_2_enabled;
-    static constexpr bool default_tile_preset_resistance_2_enabled = false;
+    static constexpr bool default_tile_preset_resistance_2_enabled = true;
 
     static const QString tile_preset_resistance_2_order;
-    static constexpr int default_tile_preset_resistance_2_order = 34;
+    static constexpr int default_tile_preset_resistance_2_order = 8;
 
     static const QString tile_preset_resistance_2_value;
-    static constexpr double default_tile_preset_resistance_2_value = 10;
+    static constexpr double default_tile_preset_resistance_2_value = 15;
 
     static const QString tile_preset_resistance_2_label;
     static const QString default_tile_preset_resistance_2_label;
 
     static const QString tile_preset_resistance_3_enabled;
-    static constexpr bool default_tile_preset_resistance_3_enabled = false;
+    static constexpr bool default_tile_preset_resistance_3_enabled = true;
 
     static const QString tile_preset_resistance_3_order;
-    static constexpr int default_tile_preset_resistance_3_order = 35;
+    static constexpr int default_tile_preset_resistance_3_order = 9;
 
     static const QString tile_preset_resistance_3_value;
     static constexpr double default_tile_preset_resistance_3_value = 20;
@@ -1830,16 +1830,16 @@ class QZSettings {
     static constexpr bool default_nordictrack_ifit_adb_remote = false;
 
     static const QString floating_width;
-    static constexpr int default_floating_width = 370;
+    static constexpr int default_floating_width = 750;
 
     static const QString floating_height;
-    static constexpr int default_floating_height = 210;
+    static constexpr int default_floating_height = 90;
 
     static const QString floating_transparency;
     static constexpr int default_floating_transparency = 80;
 
     static const QString floating_startup;
-    static constexpr int default_floating_startup = false;
+    static constexpr int default_floating_startup = true;
 
     static const QString norditrack_s25i_treadmill;
     static constexpr int default_norditrack_s25i_treadmill = false;
@@ -1874,7 +1874,7 @@ class QZSettings {
     static constexpr double default_gears_current_value = 0;
 
     static const QString tile_pace_last500m_enabled;
-    static constexpr bool default_tile_pace_last500m_enabled = true;
+    static constexpr bool default_tile_pace_last500m_enabled = false;
 
     static const QString tile_pace_last500m_order;
     static constexpr int default_tile_pace_last500m_order = 49;
@@ -2486,7 +2486,7 @@ class QZSettings {
     static constexpr bool default_restore_specific_gear = false;
 
     static const QString skipLocationServicesDialog;
-    static constexpr bool default_skipLocationServicesDialog = false;
+    static constexpr bool default_skipLocationServicesDialog = true;
 
     static const QString trainprogram_pid_pushy;
     static constexpr bool default_trainprogram_pid_pushy = true;
@@ -2731,10 +2731,10 @@ class QZSettings {
     static constexpr int default_tile_hr_time_in_zone_1_order = 62;
 
     static const QString tile_hr_time_in_zone_2_enabled;
-    static constexpr bool default_tile_hr_time_in_zone_2_enabled = false;
+    static constexpr bool default_tile_hr_time_in_zone_2_enabled = true;
 
     static const QString tile_hr_time_in_zone_2_order;
-    static constexpr int default_tile_hr_time_in_zone_2_order = 63;
+    static constexpr int default_tile_hr_time_in_zone_2_order = 6;
 
     static const QString tile_hr_time_in_zone_3_enabled;
     static constexpr bool default_tile_hr_time_in_zone_3_enabled = false;
@@ -2791,7 +2791,7 @@ class QZSettings {
     static constexpr int default_tile_coretemperature_order = 67;
 
     static const QString tile_hr_time_in_zone_individual_mode;
-    static constexpr bool default_tile_hr_time_in_zone_individual_mode = false;
+    static constexpr bool default_tile_hr_time_in_zone_individual_mode = true;
 
     static const QString nordictrack_t65s_treadmill_81_miles;
     static constexpr bool default_nordictrack_t65s_treadmill_81_miles = false;
@@ -2894,7 +2894,7 @@ class QZSettings {
      * @brief Type of floating window to use. 0 = classic, 1 = horizontal
      */
     static const QString floatingwindow_type;
-    static constexpr int default_floatingwindow_type = 0;
+    static constexpr int default_floatingwindow_type = 1;
 
     static const QString pid_heart_zone_erg_mode_watt_step;
     static constexpr int default_pid_heart_zone_erg_mode_watt_step = 5;

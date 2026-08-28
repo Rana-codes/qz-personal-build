@@ -35,9 +35,9 @@ HomeForm {
         property string theme_tile_background_color: "#303030"
         property string theme_background_color: "#303030"
         property bool theme_tile_shadow_enabled: true
-        property string theme_tile_shadow_color: "#9C27B0"
+        property string theme_tile_shadow_color: "#C30010"
         property int theme_tile_secondline_textsize: 12
-        property bool skipLocationServicesDialog: false
+        property bool skipLocationServicesDialog: true
         property bool trainprogram_sound_on_segment: false
     }
 

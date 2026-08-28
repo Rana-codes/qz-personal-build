@@ -31,38 +31,38 @@ ScrollView {
     Settings {
         id: settings
         property bool miles_unit: false
-        property bool tile_speed_enabled: true
+        property bool tile_speed_enabled: false
         property int  tile_speed_order: 0
-        property bool tile_inclination_enabled: true
+        property bool tile_inclination_enabled: false
         property int  tile_inclination_order: 1
         property bool tile_cadence_enabled: true
-        property int  tile_cadence_order: 2
-        property bool tile_elevation_enabled: true
+        property int  tile_cadence_order: 0
+        property bool tile_elevation_enabled: false
         property int  tile_elevation_order: 3
         property bool tile_calories_enabled: true
-        property int  tile_calories_order: 4
+        property int  tile_calories_order: 2
         property bool tile_odometer_enabled: true
-        property int  tile_odometer_order: 5
-        property bool tile_pace_enabled: true
+        property int  tile_odometer_order: 1
+        property bool tile_pace_enabled: false
         property int  tile_pace_order: 6
         property bool tile_resistance_enabled: true
-        property int  tile_resistance_order: 7
-        property bool tile_watt_enabled: true
+        property int  tile_resistance_order: 3
+        property bool tile_watt_enabled: false
         property int  tile_watt_order: 8
         property bool tile_weight_loss_enabled: false
         property int  tile_weight_loss_order: 24
-        property bool tile_avgwatt_enabled: true
+        property bool tile_avgwatt_enabled: false
         property int  tile_avgwatt_order: 9
-        property bool tile_ftp_enabled: true
+        property bool tile_ftp_enabled: false
         property int  tile_ftp_order: 10
         property bool tile_heart_enabled: true
-        property int  tile_heart_order: 11
-        property bool tile_fan_enabled: true
+        property int  tile_heart_order: 4
+        property bool tile_fan_enabled: false
         property int  tile_fan_order: 12
-        property bool tile_jouls_enabled: true
+        property bool tile_jouls_enabled: false
         property int  tile_jouls_order: 13
         property bool tile_elapsed_enabled: true
-        property int  tile_elapsed_order: 14
+        property int  tile_elapsed_order: 5
         property bool tile_lapelapsed_enabled: false
         property int  tile_lapelapsed_order: 17
         property bool tile_moving_time_enabled: false
@@ -71,11 +71,11 @@ ScrollView {
         property int  tile_peloton_offset_order: 22
         property bool tile_peloton_difficulty_enabled: false
         property int  tile_peloton_difficulty_order: 32
-        property bool tile_peloton_resistance_enabled: true
+        property bool tile_peloton_resistance_enabled: false
         property int  tile_peloton_resistance_order: 15
-        property bool tile_datetime_enabled: true
+        property bool tile_datetime_enabled: false
         property int  tile_datetime_order: 16
-        property bool tile_target_resistance_enabled: true
+        property bool tile_target_resistance_enabled: false
         property int  tile_target_resistance_order: 15
         property bool tile_target_peloton_resistance_enabled: false
         property int  tile_target_peloton_resistance_order: 21
@@ -111,7 +111,7 @@ ScrollView {
         property int  tile_pid_hr_order: 31
         property bool tile_ext_incline_enabled: false
         property int  tile_ext_incline_order: 32
-        property bool tile_cadence_color_enabled: false
+        property bool tile_cadence_color_enabled: true
         property bool tile_peloton_remaining_enabled: false
         property int  tile_peloton_remaining_order: 22
         property bool tile_peloton_resistance_color_enabled: false
@@ -121,18 +121,18 @@ ScrollView {
         property int  tile_ground_contact_order: 33
         property bool tile_vertical_oscillation_enabled: false
         property int  tile_vertical_oscillation_order: 34
-        property bool tile_preset_resistance_1_enabled: false
-        property int tile_preset_resistance_1_order: 33
-        property real tile_preset_resistance_1_value: 1.0
-        property string tile_preset_resistance_1_label: "Res. 1"
-        property bool tile_preset_resistance_2_enabled: false
-        property int tile_preset_resistance_2_order: 34
-        property real tile_preset_resistance_2_value: 10.0
-        property string tile_preset_resistance_2_label: "Res. 10"
-        property bool tile_preset_resistance_3_enabled: false
-        property int tile_preset_resistance_3_order: 35
-        property real tile_preset_resistance_3_value: 20.0
-        property string tile_preset_resistance_3_label: "Res. 20"
+        property bool tile_preset_resistance_1_enabled: true
+        property int tile_preset_resistance_1_order: 7
+        property real tile_preset_resistance_1_value: 0
+        property string tile_preset_resistance_1_label: "R 0"
+        property bool tile_preset_resistance_2_enabled: true
+        property int tile_preset_resistance_2_order: 8
+        property real tile_preset_resistance_2_value: 15
+        property string tile_preset_resistance_2_label: "R 15"
+        property bool tile_preset_resistance_3_enabled: true
+        property int tile_preset_resistance_3_order: 9
+        property real tile_preset_resistance_3_value: 20
+        property string tile_preset_resistance_3_label: "R 20"
         property bool tile_preset_resistance_4_enabled: false
         property int tile_preset_resistance_4_order: 36
         property real tile_preset_resistance_4_value: 25.0
@@ -198,7 +198,7 @@ ScrollView {
 		  property string tile_preset_inclination_5_color: "grey"
 		  property bool tile_avg_watt_lap_enabled: false
 		  property int tile_avg_watt_lap_order: 48
-        property bool tile_pace_last500m_enabled: true
+        property bool tile_pace_last500m_enabled: false
         property int  tile_pace_last500m_order: 49
         property bool tile_target_pace_enabled: false
         property int  tile_target_pace_order: 50
@@ -256,8 +256,8 @@ ScrollView {
 
         property bool tile_hr_time_in_zone_1_enabled: false
         property int  tile_hr_time_in_zone_1_order: 62
-        property bool tile_hr_time_in_zone_2_enabled: false
-        property int  tile_hr_time_in_zone_2_order: 63
+        property bool tile_hr_time_in_zone_2_enabled: true
+        property int  tile_hr_time_in_zone_2_order: 6
         property bool tile_hr_time_in_zone_3_enabled: false
         property int  tile_hr_time_in_zone_3_order: 64
         property bool tile_hr_time_in_zone_4_enabled: false
@@ -277,7 +277,7 @@ ScrollView {
         property bool tile_heat_time_in_zone_4_enabled: false
         property int  tile_heat_time_in_zone_4_order: 71
 
-        property bool tile_hr_time_in_zone_individual_mode: false
+        property bool tile_hr_time_in_zone_individual_mode: true
 
         property bool tile_auto_virtual_shifting_cruise_enabled: false
         property int  tile_auto_virtual_shifting_cruise_order: 72
@@ -365,7 +365,7 @@ ScrollView {
         property string shortcut_auto_resistance: ""
         property string shortcut_lap: ""
         property string shortcut_start_stop: ""            
-        property bool tile_watt_color_enabled: true
+        property bool tile_watt_color_enabled: false
         property bool tile_pace_color_enabled: true
     }
 

@@ -378,38 +378,38 @@ import AndroidStatusBar 1.0
             property string pzp_username: "username"
             property string pzp_password: "username"
 
-            property bool tile_speed_enabled: true
+            property bool tile_speed_enabled: false
             property int  tile_speed_order: 0
-            property bool tile_inclination_enabled: true
+            property bool tile_inclination_enabled: false
             property int  tile_inclination_order: 1
             property bool tile_cadence_enabled: true
-            property int  tile_cadence_order: 2
-            property bool tile_elevation_enabled: true
+            property int  tile_cadence_order: 0
+            property bool tile_elevation_enabled: false
             property int  tile_elevation_order: 3
             property bool tile_calories_enabled: true
-            property int  tile_calories_order: 4
+            property int  tile_calories_order: 2
             property bool tile_odometer_enabled: true
-            property int  tile_odometer_order: 5
-            property bool tile_pace_enabled: true
+            property int  tile_odometer_order: 1
+            property bool tile_pace_enabled: false
             property int  tile_pace_order: 6
             property bool tile_resistance_enabled: true
-            property int  tile_resistance_order: 7
-            property bool tile_watt_enabled: true
+            property int  tile_resistance_order: 3
+            property bool tile_watt_enabled: false
             property int  tile_watt_order: 8
             property bool tile_weight_loss_enabled: false
             property int  tile_weight_loss_order: 24
-            property bool tile_avgwatt_enabled: true
+            property bool tile_avgwatt_enabled: false
             property int  tile_avgwatt_order: 9
-            property bool tile_ftp_enabled: true
+            property bool tile_ftp_enabled: false
             property int  tile_ftp_order: 10
             property bool tile_heart_enabled: true
-            property int  tile_heart_order: 11
-            property bool tile_fan_enabled: true
+            property int  tile_heart_order: 4
+            property bool tile_fan_enabled: false
             property int  tile_fan_order: 12
-            property bool tile_jouls_enabled: true
+            property bool tile_jouls_enabled: false
             property int  tile_jouls_order: 13
             property bool tile_elapsed_enabled: true
-            property int  tile_elapsed_order: 14
+            property int  tile_elapsed_order: 5
             property bool tile_lapelapsed_enabled: false
             property int  tile_lapelapsed_order: 17
             property bool tile_moving_time_enabled: false
@@ -418,11 +418,11 @@ import AndroidStatusBar 1.0
             property int  tile_peloton_offset_order: 22
             property bool tile_peloton_difficulty_enabled: false
             property int  tile_peloton_difficulty_order: 32
-            property bool tile_peloton_resistance_enabled: true
+            property bool tile_peloton_resistance_enabled: false
             property int  tile_peloton_resistance_order: 15
-            property bool tile_datetime_enabled: true
+            property bool tile_datetime_enabled: false
             property int  tile_datetime_order: 16
-            property bool tile_target_resistance_enabled: true
+            property bool tile_target_resistance_enabled: false
             property int  tile_target_resistance_order: 15
             property bool tile_target_peloton_resistance_enabled: false
             property int  tile_target_peloton_resistance_order: 21
@@ -457,11 +457,11 @@ import AndroidStatusBar 1.0
             property bool tile_pid_hr_enabled: false
             property int  tile_pid_hr_order: 31
 
-            property real heart_rate_zone1: 70.0
-            property real heart_rate_zone2: 80.0
-            property real heart_rate_zone3: 90.0
-            property real heart_rate_zone4: 100.0
-            property bool heart_max_override_enable: false
+            property real heart_rate_zone1: 60
+            property real heart_rate_zone2: 70
+            property real heart_rate_zone3: 80
+            property real heart_rate_zone4: 90
+            property bool heart_max_override_enable: true
             property real heart_max_override_value: 195.0
             property int heart_rate_resting: 60
 
@@ -663,7 +663,7 @@ import AndroidStatusBar 1.0
             property string profile_name: "default"
 
             // from version 2.10.46
-            property bool tile_cadence_color_enabled: false
+            property bool tile_cadence_color_enabled: true
             property bool tile_peloton_remaining_enabled: false
             property int  tile_peloton_remaining_order: 22
             property bool tile_peloton_resistance_color_enabled: false
@@ -805,18 +805,18 @@ import AndroidStatusBar 1.0
             property bool tts_description_enabled: true
 
             // from version 2.11.80
-            property bool tile_preset_resistance_1_enabled: false
-            property int tile_preset_resistance_1_order: 33
-            property real tile_preset_resistance_1_value: 1.0
-            property string tile_preset_resistance_1_label: "Res. 1"
-            property bool tile_preset_resistance_2_enabled: false
-            property int tile_preset_resistance_2_order: 34
-            property real tile_preset_resistance_2_value: 10.0
-            property string tile_preset_resistance_2_label: "Res. 10"
-            property bool tile_preset_resistance_3_enabled: false
-            property int tile_preset_resistance_3_order: 35
-            property real tile_preset_resistance_3_value: 20.0
-            property string tile_preset_resistance_3_label: "Res. 20"
+            property bool tile_preset_resistance_1_enabled: true
+            property int tile_preset_resistance_1_order: 7
+            property real tile_preset_resistance_1_value: 0
+            property string tile_preset_resistance_1_label: "R 0"
+            property bool tile_preset_resistance_2_enabled: true
+            property int tile_preset_resistance_2_order: 8
+            property real tile_preset_resistance_2_value: 15
+            property string tile_preset_resistance_2_label: "R 15"
+            property bool tile_preset_resistance_3_enabled: true
+            property int tile_preset_resistance_3_order: 9
+            property real tile_preset_resistance_3_value: 20
+            property string tile_preset_resistance_3_label: "R 20"
             property bool tile_preset_resistance_4_enabled: false
             property int tile_preset_resistance_4_order: 36
             property real tile_preset_resistance_4_value: 25.0
@@ -927,14 +927,14 @@ import AndroidStatusBar 1.0
             // from version 2.12.29
             property bool powr_sensor_running_cadence_half_on_strava: false
             property bool nordictrack_ifit_adb_remote: false
-            property int floating_height: 210
-            property int floating_width: 370
+            property int floating_height: 90
+            property int floating_width: 750
 
             // from version 2.12.32
             property int floating_transparency: 80
 
             // from version 2.12.34
-            property bool floating_startup: false
+            property bool floating_startup: true
 
             // from version 2.12.35
             property bool norditrack_s25i_treadmill: false
@@ -958,7 +958,7 @@ import AndroidStatusBar 1.0
             property int gears_current_value: 0 // unused
 
             // from version 2.12.44
-            property bool tile_pace_last500m_enabled: true
+            property bool tile_pace_last500m_enabled: false
             property int  tile_pace_last500m_order: 49
 
             // from version 2.12.51
@@ -1071,12 +1071,12 @@ import AndroidStatusBar 1.0
             // from version 2.13.37
             property bool theme_tile_icon_enabled: true
             property string theme_tile_background_color: "#303030"
-            property string theme_status_bar_background_color: "#800080"
+            property string theme_status_bar_background_color: "#C30010"
 
             // from version 2.13.43
             property string theme_background_color: "#303030"
             property bool theme_tile_shadow_enabled: true
-            property string theme_tile_shadow_color: "#9C27B0"
+            property string theme_tile_shadow_color: "#C30010"
 
             // from version 2.13.44
             property double gears_gain: 1.0
@@ -1312,7 +1312,7 @@ import AndroidStatusBar 1.0
             property bool watt_bike_emulator: false
 
             property bool restore_specific_gear: false
-            property bool skipLocationServicesDialog: false
+            property bool skipLocationServicesDialog: true
             property bool trainprogram_pid_pushy: true
             property real min_inclination: -999
 
@@ -1429,8 +1429,8 @@ import AndroidStatusBar 1.0
             property bool trainprogram_pid_ignore_inclination: false
             property bool tile_hr_time_in_zone_1_enabled: false
             property int  tile_hr_time_in_zone_1_order: 62
-            property bool tile_hr_time_in_zone_2_enabled: false
-            property int  tile_hr_time_in_zone_2_order: 63
+            property bool tile_hr_time_in_zone_2_enabled: true
+            property int  tile_hr_time_in_zone_2_order: 6
             property bool tile_hr_time_in_zone_3_enabled: false
             property int  tile_hr_time_in_zone_3_order: 64
             property bool tile_hr_time_in_zone_4_enabled: false
@@ -1453,7 +1453,7 @@ import AndroidStatusBar 1.0
             property bool nordictrack_elite_800: false
             property bool ios_btdevice_native: false            
             property string inclinationResistancePoints: ""
-            property int floatingwindow_type: 0
+            property int floatingwindow_type: 1
             property bool horizon_treadmill_7_0_at_24: false  // not used
 
             property bool nordictrack_treadmill_ultra_le: false            
@@ -1475,7 +1475,7 @@ import AndroidStatusBar 1.0
             property int fit_file_garmin_device_training_effect_device: 3122            
 
             // 2.19.2
-            property bool tile_hr_time_in_zone_individual_mode: false
+            property bool tile_hr_time_in_zone_individual_mode: true
             property bool wahoo_without_wheel_diameter: false
 
             // 2.20.3
@@ -1703,7 +1703,7 @@ import AndroidStatusBar 1.0
             property real trainprogram_cooldown_speed: 420
             property real trainprogram_rest_speed: 420
             property bool trainprogram_sound_on_segment: false
-            property bool tile_watt_color_enabled: true
+            property bool tile_watt_color_enabled: false
             property bool tile_pace_color_enabled: true
             property bool treadmill_force_running_activity: false
             property bool proform_treadmill_105_cst: false            
