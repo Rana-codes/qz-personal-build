@@ -1817,6 +1817,13 @@ void TemplateInfoSenderBuilder::buildContext(bool forceReinit) {
         obj.setProperty(QStringLiteral("heart_lapavg"), dep.lapAverage());
         obj.setProperty(QStringLiteral("heart_max"), dep.max());
         obj.setProperty(QStringLiteral("heart_lapmax"), dep.lapMax());
+        // Mirror the dashboard's HR Zone 2 tile verbatim rather than recomputing it, so the
+        // floating window can never disagree with the tile. The tile already honours the
+        // individual/progressive mode setting and formats as h:mm:ss.
+        obj.setProperty(QStringLiteral("hr_time_in_zone_2"),
+                        homeform::singleton()->tile_hr_time_in_zone_2
+                            ? homeform::singleton()->tile_hr_time_in_zone_2->value()
+                            : QStringLiteral("0:00:00"));
         obj.setProperty(QStringLiteral("target_heart_above"), 0);
         obj.setProperty(QStringLiteral("target_heart_below"), 0);
         if (homeform::singleton()->trainingProgram()) {

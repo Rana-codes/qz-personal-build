@@ -356,7 +356,12 @@
           <td style="text-align: left" data-i18n="metric.distance">DISTANCE</td>
           <td class="distance-value values" colspan="5"><b>0.00</b></td>
         </tr>
-        <tr class="elapsed" sort-order="13">
+        <tr class="hrzone2" sort-order="13">
+          <td class="icon">❤️</td>
+          <td style="text-align: left">HR Z2</td>
+          <td class="hrzone2-value values" colspan="5"><b>0:00:00</b></td>
+        </tr>
+        <tr class="elapsed" sort-order="13.5">
           <td class="icon">⏲️</td>
           <td style="text-align: left">ELAPSED</td>
           <td class="elapsed-value values" colspan="5"><b>0:00:00</b></td>
@@ -466,7 +471,8 @@
               { id: "calories", name: "CALORIES", order: 10 },
               { id: "jouls", name: "TOT.OUTPUT", order: 11 },
               { id: "distance", name: "DISTANCE", order: 12 },
-              { id: "elapsed", name: "ELAPSED", order: 13 },
+              { id: "hrzone2", name: "HR Z2", order: 13 },
+              { id: "elapsed", name: "ELAPSED", order: 13.5 },
               { id: "rowremainingtime", name: "REM.TIME", order: 14 },
               { id: "pelotonoffset", name: "P.OFFSET", order: 15 },
               { id: "gears", name: "GEARS", order: 16 },
@@ -666,6 +672,7 @@
                   settingsToUpdate['tile_watt_enabled'] = metricsPreference["watt"];
                   settingsToUpdate['tile_heart_enabled'] = metricsPreference["heart"];
                   settingsToUpdate['tile_elapsed_enabled'] = metricsPreference["elapsed"];
+                  settingsToUpdate['tile_hr_time_in_zone_2_enabled'] = metricsPreference["hrzone2"];
                   settingsToUpdate['tile_remainingtimetrainprogramrow_enabled'] = metricsPreference["rowremainingtime"];
                   settingsToUpdate['tile_nextrowstrainprogram_enabled'] = metricsPreference["nextrow"];
                   settingsToUpdate['tile_peloton_resistance_enabled'] = metricsPreference["pelotonresistance"];
@@ -1040,7 +1047,8 @@
                                   'tile_heart_order', 'tile_elapsed_order', 'tile_peloton_resistance_order', 'floating_transparency', 'tile_target_resistance_order', 'tile_target_peloton_resistance_order',
                                   'tile_target_cadence_order', 'tile_target_power_order', 'tile_peloton_offset_order', 'tile_target_speed_order', 'tile_target_pace_order', 'tile_inclination_order',
                                   'tile_target_incline_order', 'tile_target_zone_order', 'tile_ftp_order', 'tile_jouls_order', 'tile_remainingtimetrainprogramrow_order', 'tile_gears_order',
-                                  'tile_elevation_order', 'tile_pace_order', 'theme_tile_icon_enabled', 'tile_nextrowstrainprogram_enabled', 'tile_nextrowstrainprogram_order']
+                                  'tile_elevation_order', 'tile_pace_order', 'theme_tile_icon_enabled', 'tile_nextrowstrainprogram_enabled', 'tile_nextrowstrainprogram_order',
+                                  'tile_hr_time_in_zone_2_enabled']
 
                                 // Get settings from server
                                 let el = new MainWSQueueElement({
@@ -1094,6 +1102,9 @@
                                       }
                                       else if (key === 'tile_elapsed_enabled') {
                                         metricsPreference["elapsed"] = (msg.content[key] === true || msg.content[key] === 'true');
+                                      }
+                                      else if (key === 'tile_hr_time_in_zone_2_enabled') {
+                                        metricsPreference["hrzone2"] = (msg.content[key] === true || msg.content[key] === 'true');
                                       }
                                       else if (key === 'tile_peloton_remaining_enabled') {
                                         metricsPreference["pelotonremaining"] = (msg.content[key] === true || msg.content[key] === 'true');
@@ -1167,7 +1178,7 @@
 
                                             // Keys array for workout data - same as in original template
                                             keys_arr = ['speed', 'speed_lapavg', 'cadence', 'cadence_lapavg', 'heart', 'heart_lapavg', 'calories', 'distance', 'watts', 'watts_lapavg',
-                                              'elapsed_h', 'elapsed_m', 'elapsed_s', 'resistance', 'resistance_lapavg', 'peloton_resistance', 'peloton_resistance_lapavg',
+                                              'elapsed_h', 'elapsed_m', 'elapsed_s', 'hr_time_in_zone_2', 'resistance', 'resistance_lapavg', 'peloton_resistance', 'peloton_resistance_lapavg',
                                               'speed_lapmax', 'cadence_lapmax', 'heart_lapmax', 'watts_lapmax', 'resistance_lapmax', 'peloton_resistance_lapmax',
                                               'speed_color', 'pace_color', 'power_zone_color', 'target_power_zone_color', 'cadence_color', 'heart_color', 'watts_color',
                                               'peloton_resistance_color', 'target_resistance', 'target_peloton_resistance',
@@ -1561,6 +1572,8 @@
                                                                                         // Next row
                                                                                         $('.nextrow-value').html("<b>" + data.nextrow + "</b>");
 
+                                                                                        // Time spent in HR Zone 2 (mirrors the dashboard tile)
+                                                                                        $('.hrzone2-value').html("<b>" + (data.hr_time_in_zone_2 !== undefined ? data.hr_time_in_zone_2 : "0:00:00") + "</b>");
                                                                                         // Elapsed time
                                                                                         $('.elapsed-value').html("<b>" + data.elapsed_h.toString().padStart(2, "0") + ":" +
                                                                                                                 data.elapsed_m.toString().padStart(2, "0") + ":" +
@@ -1694,6 +1707,9 @@
                                                                                                     }
 
                                                                                                     // Update elapsed
+                                                                                                    if ($('.horizontal-bar .hrzone2').length > 0) {
+                                                                                                      $('.horizontal-bar .hrzone2-value').html(data.hr_time_in_zone_2 !== undefined ? data.hr_time_in_zone_2 : "0:00:00");
+                                                                                                    }
                                                                                                     if ($('.horizontal-bar .elapsed').length > 0) {
                                                                                                       $('.horizontal-bar .elapsed-value').html(data.elapsed_h.toString().padStart(2, "0") + ":" +
                                                                                                                              data.elapsed_m.toString().padStart(2, "0") + ":" +
