@@ -497,7 +497,7 @@ class QZSettings {
     static constexpr int default_tile_jouls_order = 13;
 
     static const QString tile_elapsed_enabled;
-    static constexpr bool default_tile_elapsed_enabled = false;
+    static constexpr bool default_tile_elapsed_enabled = true;
 
     static const QString tile_elapsed_order;
     static constexpr int default_tile_elapsed_order = 5;

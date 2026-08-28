@@ -61,7 +61,7 @@ ScrollView {
         property int  tile_fan_order: 12
         property bool tile_jouls_enabled: false
         property int  tile_jouls_order: 13
-        property bool tile_elapsed_enabled: false
+        property bool tile_elapsed_enabled: true
         property int  tile_elapsed_order: 5
         property bool tile_lapelapsed_enabled: false
         property int  tile_lapelapsed_order: 17

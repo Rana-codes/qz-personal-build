@@ -1215,6 +1215,7 @@
                                                 var watt = 0;
                                                 var watt_lapavg = 0;
                                                 var watt_lapmax = 0;
+                                                var hr_time_in_zone_2 = "0:00:00";
                                                 var elapsed_h = 0;
                                                 var elapsed_m = 0;
                                                 var elapsed_s = 0;
@@ -1301,6 +1302,8 @@
                                                               watt_lapavg = msg.content[key];
                                                             } else if (key === 'watts_lapmax') {
                                                               watt_lapmax = msg.content[key];
+                                                            } else if (key === 'hr_time_in_zone_2') {
+                                                              hr_time_in_zone_2 = msg.content[key];
                                                             } else if (key === 'elapsed_h') {
                                                               elapsed_h = msg.content[key];
                                                             } else if (key === 'elapsed_m') {
@@ -1427,6 +1430,7 @@
                                                                           watt: watt,
                                                                           watt_lapavg: watt_lapavg,
                                                                           watt_lapmax: watt_lapmax,
+                                                                          hr_time_in_zone_2: hr_time_in_zone_2,
                                                                           elapsed_h: elapsed_h,
                                                                           elapsed_m: elapsed_m,
                                                                           elapsed_s: elapsed_s,
